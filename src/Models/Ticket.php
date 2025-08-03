@@ -132,7 +132,10 @@ class Ticket extends Model
             ->author($this->author->name, null, $this->author->getAvatar())
             ->addField(trans('messages.fields.title'), $this->subject)
             ->addField(trans('messages.fields.category'), $this->category->name)
-            ->addField(trans('messages.fields.content'), Str::limit($comment->content, 1995))
+            ->addField(
+                trans('messages.fields.content'),
+                Str::limit($comment->content, 1000)
+            )
             ->url(route('support.admin.tickets.show', $this))
             ->color('#004de6')
             ->footer('Azuriom v'.Azuriom::version())
