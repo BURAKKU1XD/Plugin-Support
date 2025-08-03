@@ -92,7 +92,7 @@ class Ticket extends Model
 
     public function authorReplied(): bool
     {
-        return $this->comment->author->is($this->author);
+        return $this->comment?->author?->is($this->author) ?? false;
     }
 
     public function status(bool $authorReplies = false): string
