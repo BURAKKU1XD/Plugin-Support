@@ -44,6 +44,6 @@ class CategoryTicketController extends Controller
             rescue(fn () => $ticket->createCreatedDiscordWebhook()->send($webhookUrl));
         }
 
-        return to_route('support.tickets.show', $ticket);
+        return to_route('support.tickets.index');
     }
 }
