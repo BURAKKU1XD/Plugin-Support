@@ -82,7 +82,10 @@ class Comment extends Model
             ->author($this->author->name, null, $this->author->getAvatar())
             ->addField(trans('support::messages.fields.ticket'), $this->ticket->subject)
             ->addField(trans('messages.fields.category'), $this->ticket->category->name)
-            ->addField(trans('messages.fields.content'), Str::limit($this->content, 1995))
+            ->addField(
+                trans('messages.fields.content'),
+                Str::limit($this->content, 1000)
+            )
             ->url(route('support.admin.tickets.show', $this->ticket))
             ->color('#004de6')
             ->footer('Azuriom v'.Azuriom::version())
